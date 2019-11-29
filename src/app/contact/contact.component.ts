@@ -19,7 +19,7 @@ export class ContactComponent implements OnInit {
 
   async loadContacts() {
     const savedContacts = this.getItemsFromLocalStorage('contacts');
-    if(savedContacts && savedContacts.length > 0) {
+    if (savedContacts && savedContacts.length > 0) {
       this.contacts = savedContacts;
     } else {
       this.contacts = await this.loadItemsFromFile();
@@ -60,12 +60,12 @@ export class ContactComponent implements OnInit {
   searchContact(params: string) {
     this.contacts = this.contacts.filter((item: Contact) => {
       const fullName = item.firstName + ' ' + item.lastName;
-      if(params === fullName || params === item.firstName || params === item.lastName) {
+      if (params === fullName || params === item.firstName || params === item.lastName) {
         return true;
       } else {
         return false;
       }
-    })
+    });
   }
 
   sortByID(contacts: Array<Contact>) {
